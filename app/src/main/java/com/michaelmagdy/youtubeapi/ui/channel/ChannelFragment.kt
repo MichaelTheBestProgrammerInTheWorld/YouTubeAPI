@@ -1,4 +1,4 @@
-package com.michaelmagdy.youtubeapi.ui.notifications
+package com.michaelmagdy.youtubeapi.ui.channel
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,13 +8,12 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.michaelmagdy.youtubeapi.R
-import com.michaelmagdy.youtubeapi.databinding.FragmentNotificationsBinding
+import com.michaelmagdy.youtubeapi.databinding.FragmentChannelBinding
 
-class NotificationsFragment : Fragment() {
+class ChannelFragment : Fragment() {
 
-    private lateinit var notificationsViewModel: NotificationsViewModel
-    private var _binding: FragmentNotificationsBinding? = null
+    private lateinit var channelViewModel: ChannelViewModel
+    private var _binding: FragmentChannelBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -25,14 +24,14 @@ class NotificationsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        notificationsViewModel =
-            ViewModelProvider(this).get(NotificationsViewModel::class.java)
+        channelViewModel =
+            ViewModelProvider(this).get(ChannelViewModel::class.java)
 
-        _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
+        _binding = FragmentChannelBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val textView: TextView = binding.textNotifications
-        notificationsViewModel.text.observe(viewLifecycleOwner, Observer {
+        channelViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root

@@ -1,4 +1,4 @@
-package com.michaelmagdy.youtubeapi.ui.dashboard
+package com.michaelmagdy.youtubeapi.ui.playlists
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,13 +8,12 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.michaelmagdy.youtubeapi.R
-import com.michaelmagdy.youtubeapi.databinding.FragmentDashboardBinding
+import com.michaelmagdy.youtubeapi.databinding.FragmentPlaylistsBinding
 
-class DashboardFragment : Fragment() {
+class PlaylistsFragment : Fragment() {
 
-    private lateinit var dashboardViewModel: DashboardViewModel
-    private var _binding: FragmentDashboardBinding? = null
+    private lateinit var playlistsViewModel: PlaylistsViewModel
+    private var _binding: FragmentPlaylistsBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -25,14 +24,14 @@ class DashboardFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        dashboardViewModel =
-            ViewModelProvider(this).get(DashboardViewModel::class.java)
+        playlistsViewModel =
+            ViewModelProvider(this).get(PlaylistsViewModel::class.java)
 
-        _binding = FragmentDashboardBinding.inflate(inflater, container, false)
+        _binding = FragmentPlaylistsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val textView: TextView = binding.textDashboard
-        dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
+        playlistsViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root

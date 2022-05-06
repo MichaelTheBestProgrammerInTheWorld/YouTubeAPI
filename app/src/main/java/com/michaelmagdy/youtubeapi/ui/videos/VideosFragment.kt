@@ -1,4 +1,4 @@
-package com.michaelmagdy.youtubeapi.ui.home
+package com.michaelmagdy.youtubeapi.ui.videos
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,22 +9,21 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.michaelmagdy.youtubeapi.R
-import com.michaelmagdy.youtubeapi.databinding.FragmentHomeBinding
 
-class HomeFragment : Fragment() {
+class VideosFragment : Fragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
+    private lateinit var videosViewModel: VideosViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_home, container, false)
+        videosViewModel =
+            ViewModelProvider(this).get(VideosViewModel::class.java)
+        val root = inflater.inflate(R.layout.fragment_videos, container, false)
         val textView: TextView = root.findViewById(R.id.text_home)
-        homeViewModel.channel.observe(viewLifecycleOwner, Observer {
+        videosViewModel.channel.observe(viewLifecycleOwner, Observer {
             if (it != null && it.items.isNotEmpty()){
                 it.items.forEach {  channel ->
                     textView.text = channel.snippet.title

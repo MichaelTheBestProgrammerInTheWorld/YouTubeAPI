@@ -1,7 +1,6 @@
-package com.michaelmagdy.youtubeapi.ui.home
+package com.michaelmagdy.youtubeapi.ui.videos
 
 import android.util.Log
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.michaelmagdy.youtubeapi.model.ChannelModel
@@ -10,7 +9,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class HomeViewModel : ViewModel() {
+class VideosViewModel : ViewModel() {
 
     private val _channel = MutableLiveData<ChannelModel?>()
     val channel = _channel
@@ -50,6 +49,6 @@ class HomeViewModel : ViewModel() {
     }
 
     companion object {
-        private val TAG = HomeViewModel::class.java.simpleName
+        private val TAG = VideosViewModel::class.java.simpleName
     }
 }
