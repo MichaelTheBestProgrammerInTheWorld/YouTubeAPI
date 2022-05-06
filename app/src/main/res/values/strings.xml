@@ -3,4 +3,7 @@
     <string name="title_videos">Videos</string>
     <string name="title_playlists">Playlists</string>
     <string name="title_channel">Channel</string>
+
+    <string name="image_channel">Image Channel</string>
+    <string name="logo_channel">Logo Channel</string>
 </resources>
