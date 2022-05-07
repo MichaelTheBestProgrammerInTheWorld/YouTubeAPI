@@ -1,4 +1,4 @@
-package com.michaelmagdy.youtubeapi
+package com.michaelmagdy.youtubeapi.ui.activities
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -7,6 +7,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.michaelmagdy.youtubeapi.R
 import com.michaelmagdy.youtubeapi.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

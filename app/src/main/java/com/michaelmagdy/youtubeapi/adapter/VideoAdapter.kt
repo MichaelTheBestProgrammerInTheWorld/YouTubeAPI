@@ -1,5 +1,6 @@
 package com.michaelmagdy.youtubeapi.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -8,6 +9,7 @@ import com.bumptech.glide.Glide
 import com.michaelmagdy.youtubeapi.databinding.ItemVideoBinding
 import com.michaelmagdy.youtubeapi.diffutils.VideoDiffUtil
 import com.michaelmagdy.youtubeapi.model.VideoYtModel
+import com.michaelmagdy.youtubeapi.ui.activities.PlayerActivity
 
 class VideoAdapter  : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -18,6 +20,15 @@ class VideoAdapter  : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         private val binding = itemView
 
         fun setData(data: VideoYtModel.VideoItem){
+            //go to video player
+            binding.root.setOnClickListener {
+                val i = Intent(it.context, PlayerActivity::class.java)
+                i.putExtra("video_id", data.videoId.id)
+                i.putExtra("video_title", data.snippetYt.title)
+                i.putExtra("video_description", data.snippetYt.description)
+                it.context.startActivity(i)
+            }
+
             binding.tvVideoTitle.text = data.snippetYt.title
             binding.tvPublished.text = data.snippetYt.publishedAt
             Glide.with(binding.root)
