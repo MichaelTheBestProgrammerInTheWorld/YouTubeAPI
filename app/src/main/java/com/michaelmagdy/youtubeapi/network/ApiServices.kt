@@ -1,6 +1,7 @@
 package com.michaelmagdy.youtubeapi.network
 
 import com.michaelmagdy.youtubeapi.model.ChannelModel
+import com.michaelmagdy.youtubeapi.model.PlaylistItemsModel
 import com.michaelmagdy.youtubeapi.model.PlaylistYtModel
 import com.michaelmagdy.youtubeapi.model.VideoYtModel
 import retrofit2.Call
@@ -31,4 +32,11 @@ interface ApiServices {
         @Query("maxResults") maxResults: String,
         @Query("pageToken") pageToken: String?
     ) : Call<PlaylistYtModel>
+
+    @GET("playlistItems")
+    fun getPlaylistItems(
+        @Query("part") part: String,
+        @Query("playlistId") playlist: String,
+        @Query("pageToken") pageToken: String?
+    ) : Call<PlaylistItemsModel>
 }

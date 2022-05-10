@@ -1,5 +1,6 @@
 package com.michaelmagdy.youtubeapi.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -8,6 +9,7 @@ import com.bumptech.glide.Glide
 import com.michaelmagdy.youtubeapi.databinding.ItemPlaylistBinding
 import com.michaelmagdy.youtubeapi.diffutils.PlaylistDiffUtil
 import com.michaelmagdy.youtubeapi.model.PlaylistYtModel
+import com.michaelmagdy.youtubeapi.ui.activities.playlistItem.PlaylistItemActivity
 
 class PlaylistAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
@@ -18,6 +20,11 @@ class PlaylistAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         private val binding = itemView
 
         fun setData(data: PlaylistYtModel.PlaylistItem){
+            binding.root.setOnClickListener {
+                val i = Intent(it.context, PlaylistItemActivity::class.java)
+                i.putExtra("playlist_id", data.id)
+                it.context.startActivity(i)
+            }
             binding.tvPlaylistTitle.text = data.snippetYt.title
             val videoCount = "${data.contentDetail.itemCount} videos"
             binding.tvVideoCount.text = videoCount
