@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.michaelmagdy.youtubeapi.model.ChannelModel
 import com.michaelmagdy.youtubeapi.network.ApiConfig
+import com.michaelmagdy.youtubeapi.util.Constants.CHANNEL_ID
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -25,7 +26,7 @@ class ChannelViewModel : ViewModel() {
 
     private fun getChannel(){
         _isLoading.value = true
-        val client = ApiConfig.getService().getChannel("snippet,brandingSettings", "UCKr8AEu-V0kJRpJlw4bYNmA")
+        val client = ApiConfig.getService().getChannel("snippet,brandingSettings", CHANNEL_ID)
         client.enqueue(object : Callback<ChannelModel> {
             override fun onResponse(call: Call<ChannelModel>, response: Response<ChannelModel>) {
                 _isLoading.value = false

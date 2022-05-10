@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.michaelmagdy.youtubeapi.model.ChannelModel
 import com.michaelmagdy.youtubeapi.model.VideoYtModel
 import com.michaelmagdy.youtubeapi.network.ApiConfig
+import com.michaelmagdy.youtubeapi.util.Constants.CHANNEL_ID
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -32,7 +33,7 @@ class VideosViewModel : ViewModel() {
         val client = ApiConfig.getService().getVideo(
             "snippet",
             //"UCkXmLjEr95LVtGuIm3l2dPg",
-            "UCKr8AEu-V0kJRpJlw4bYNmA",
+            CHANNEL_ID,
             "date",
             nextPageToken,
             querySearch)
